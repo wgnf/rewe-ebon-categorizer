@@ -51,6 +51,7 @@ def save_category_config() -> None:
 def parse_bought_items(filepath: str) -> None:
     global bought_items
 
+    filepath = filepath.replace('"', '')
     filetext = get_text_from_pdf(filepath)
     file_lines = filetext.split('\n')
 

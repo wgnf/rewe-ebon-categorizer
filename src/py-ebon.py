@@ -125,6 +125,9 @@ def print_bought_items() -> None:
     for category_id, grouped_items in itertools.groupby(sorted_bought_items, lambda item: item['category_id']):
         print(f'{get_category_name_by_id(category_id).ljust(15)} {sum([item["price"] for item in grouped_items]):.2f}€')
 
+    total_sum = sum(item['price'] for item in bought_items)
+    print(f'\nTOTAL: {total_sum:.2f}€')
+
 def get_category_name_by_id(category_id: int|None) -> str:
     global category_config
 

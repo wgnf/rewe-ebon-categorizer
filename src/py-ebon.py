@@ -10,8 +10,13 @@ category_config = []
 category_config_file = 'category_config.json'
 
 def main():
-    global category_config
+    try:
+        execute()
+    finally:
+        save_category_config()
 
+def execute() -> None:
+    global category_config
     load_category_config()
 
     print('which file should be processed? (PDF)')
@@ -29,11 +34,10 @@ def main():
         
         edit_mode()
 
-    save_category_config()
-
 def load_category_config() -> None:
     global category_config, category_config_file
 
+    print('loading configuration...')
     if not os.path.isfile(category_config_file):
         return
     
@@ -45,6 +49,7 @@ def load_category_config() -> None:
 def save_category_config() -> None:
     global category_config
 
+    print('saving configuration...')
     with open(category_config_file, 'w') as file_stream:
         json.dump(category_config, file_stream)
 

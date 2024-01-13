@@ -65,7 +65,8 @@ def parse_bought_items(filepath: str) -> None:
     # and ends when the sum is printed out after a long array of dashes
     filter_iter = itertools.takewhile(lambda line: '-----' not in line, filter_iter)
     # important, because when you buy multiple things, the amount of items is printed out in a separate line
-    filter_iter = filter(lambda line: not line.startswith(' '), filter_iter)
+    # and, thats why two spaces are used, discounts are printed out with a starting space
+    filter_iter = filter(lambda line: not line.startswith('  '), filter_iter)
     filter_iter = map(lambda line: line.strip(), filter_iter)
 
     bought_item_texts = list(filter_iter)

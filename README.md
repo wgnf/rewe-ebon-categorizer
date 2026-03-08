@@ -18,13 +18,13 @@ You need Python version 3 to run this script.
 First time you want to run this script, you have to run
 
 ```powershell
-pip install --no-cache-dir -r .src\requirements.txt
+pip install --no-cache-dir -r .\src\requirements.txt
 ```
 
 then you can run
 
 ```powershell
-python .\py-ebon.py
+python .\src\py-ebon.py
 ```
 
 to start the script.  
